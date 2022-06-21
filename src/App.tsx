@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import styles from "./App.module.scss";
+import MarkedInput from "./components/markedInput";
+import Result from "./components/result";
+import EditorContext from "./editorContext";
 function App() {
+  const [markdownText, setMarkdownText] = useState("");
+
+  const contextValue = {
+    markdownText,
+    setMarkdownText,
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <EditorContext.Provider value={contextValue}>
+      {" "}
+      <div className={styles.appContainer}>
+        <div className={styles.title}>MarkDown Editor</div>
+        <div className={styles.editorContainer}>
+          <MarkedInput />
+          <Result />
+        </div>
+      </div>
+    </EditorContext.Provider>
   );
 }
 
