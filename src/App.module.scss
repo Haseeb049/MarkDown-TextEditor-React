@@ -5,6 +5,16 @@
   font-family: "Lato", sans-serif;
   margin-bottom: 1rem;
 }
-.App {
-  text-align: center;
+
+.editorContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.appContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
